@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "5347165d-4c18-4cae-81d8-0764ce617cf5",
+    "name": "mongoose",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54018524",
+    "_collection_link": "https://go.postman.co/collection/54018524-5347165d-4c18-4cae-81d8-0764ce617cf5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "tp-persistencia",
+      "item": [
+        {
+          "name": "crearUsuario",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nickName\": \"usuario 1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/users/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "users",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traerTodosLosUsuarios",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traerUsuarioPorID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/users/6a3311016b7c2298f1da2d70",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "users",
+                "6a3311016b7c2298f1da2d70"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "actualizarUnUsuarioCambiandoElNombre",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nickName\": \"usuario 3\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/users/6a3313ad08625a17d2088129",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "users",
+                "6a3313ad08625a17d2088129"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminarUnUsuarioPorID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/users/6a3313ad08625a17d2088129",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "users",
+                "6a3313ad08625a17d2088129"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crearUnTag",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"tag 1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/tags/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "tags",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traerTodasLasTag",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/tags",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "tags"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traerUnaTagPorID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/tags/6a33174d6fecc9d82eaff65a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "tags",
+                "6a33174d6fecc9d82eaff65a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "actualizarUnaTagCambiandoElNombre",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"tag 3\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/tags/6a3318156fecc9d82eaff65b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "tags",
+                "6a3318156fecc9d82eaff65b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminarUnTagPorID",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/tags/6a33188d6fecc9d82eaff65c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "tags",
+                "6a33188d6fecc9d82eaff65c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crearUnPost",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"description\": \"Este es mi primer post\",\r\n  \"user\": \"6a3311016b7c2298f1da2d70\",\r\n  \"tags\": [\r\n    \"6a3316ef6fecc9d82eaff659\"\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/posts/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "posts",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "traerTodosLosPost",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3002/posts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crearUnComentarioEnUnPost",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"text\": \"soy el usuario 2 y te dejo mi primer saludo\",\r\n  \"post\": \"6a331dc51ab64800c3d26a22\", \r\n  \"user\": \"6a3311456b7c2298f1da2d71\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3002/comments/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "comments",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
