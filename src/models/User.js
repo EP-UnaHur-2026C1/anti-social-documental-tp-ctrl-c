@@ -1,20 +1,39 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
     {
-        nickName:{
-            type:String,
-            required:[true, "El nickname es obligatorio"],
-            unique:true,
-            trim:true
-        }
+        nickName: {
+            type: String,
+            required: [true, "El nickname es obligatorio"],
+            unique: true,
+            trim: true
+        },
+        followers: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User' 
+        }],
+        following: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User' 
+        }]
     },
     {
-        timestamps:true
-
+        timestamps: true,
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true }
     }
-)
+);
 
-const User = mongoose.model('User', userSchema)
+userSchema.virtual('posts', {
+    ref: 'Post',
+    localField: '_id',
+    foreignField: 'user'
+});
 
-module.exports = User
+userSchema.virtual('comentarios', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'user'
+});
+
+module.exports = mongoose.model('User', userSchema);

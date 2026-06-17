@@ -88,10 +88,25 @@ const getPostsByUserId = async (req, res) => {
     }
 };
 
+const dejarDeSeguirUsuario = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const idADejarDeSeguir  = req.params.idToFollow;
 
+        const miUsuario = await User.findByIdAndUpdate(id, {
+            $pull: { following: idADejarDeSeguir }
+        });
 
+        const usuarioADejarDeSeguir = await User.findByIdAndUpdate(idADejarDeSeguir, {
+            $pull: { followers: id }
+        });
 
-
+        res.status(200).json({ message: 'Dejaste de seguir a este usuario exitosamente' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Error al dejar de seguir al usuario', error: error.message });
+    }
+};
 
 
 
