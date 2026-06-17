@@ -69,12 +69,24 @@ const deleteUser = async (req, res) => {
 const getCommentsByUserId = async (req, res) => {
     try {
         const id = req.params.id;
-        const comentarios = await Comment.find({ user: userId });
+        const comentarios = await Comment.find({ user: id });
         res.status(200).json(comentarios);
     }catch (error) {
         res.status(500).json({message: 'Error al obtener los comentarios del usuario'});
     }
 }
+
+const getPostsByUserId = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const user = await User.findById(id).populate('posts', 'texto fecha'); 
+
+
+        res.status(200).json(user.posts);
+    } catch (error) {
+        res.status(500).json({ message: `Error al obtener los posts: ${error.message}` });
+    }
+};
 
 
 
@@ -103,6 +115,8 @@ const seguirUsuario = async (req, res) => {
         res.status(500).json({ message: 'Error al seguir al usuario', error: error.message });
     }
 };
+
+
 
 
 
