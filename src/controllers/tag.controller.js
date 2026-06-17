@@ -25,7 +25,7 @@ const updateTag = async (req, res) => {
         const data = req.body;
         const id = req.params.id;
         const tagActualizada = await Tag.findByIdAndUpdate(id, data, { new: true });
-        res.status(201).json(tagActualizada)
+        res.status(200).json(tagActualizada)
     }catch(error){
         res.status(500).json({error: error.message})
 
