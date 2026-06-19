@@ -6,7 +6,10 @@ dotenv.config({ override: true });
 const app = express();
 const PORT = process.env.PORT ?? '3000';
 const { connectToDataBase } = require('./db/mongodb');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 
+const swaggerDocument = YAML.load('./docs/swagger.yaml');
 
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
@@ -15,13 +18,16 @@ const tagRoutes = require('./routes/tag.routes');
 const postImageRoutes = require('./routes/postImage.routes');
 
 app.use(express.json());
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// 2. Conectar las rutas a Express
+
 app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 app.use('/tags', tagRoutes);
 app.use('/postImages', postImageRoutes);
+
+
 
 app.listen(PORT, async (err) => {
     if (err) {
