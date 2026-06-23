@@ -1,18 +1,9 @@
 const Post = require('../models/Post')
 const PostImage = require('../models/PostImage')
-const cacheManager = require('../managers/CacheManager')
+cacheManager = require('../managers/CacheManager')
 
 const getPosts = async (req, res) => {
     try {
-
-
-        const cachedPosts = cacheManager.get('posts')
-        if (cachedPosts) {
-            res.status(200).json(cachedPosts)
-            return
-        }
-
-
 
         const limiteMeses = parseInt(process.env.MONTHS_LIMIT ?? '6')
         const fechaLimite = new Date()
@@ -29,11 +20,6 @@ const getPosts = async (req, res) => {
                 options: { sort: { createdAt: -1 } }
             })
             .sort({ createdAt: -1 })
-
-
-        cacheManager.set('all_posts', posts)
-
-
 
         res.status(200).json(posts)
 
@@ -96,6 +82,7 @@ const updatePost = async (req, res) => {
     try {
         const id = req.params.id
         const updatedPost = await Post.findByIdAndUpdate(id, req.body, { new: true })
+        cacheManager.clear()
         res.status(200).json(updatedPost)
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -110,6 +97,7 @@ const deletePost = async (req, res) => {
     try {
         const id = req.params.id
         const deletedPost = await Post.findByIdAndDelete(id)
+        cacheManager.clear()
         res.status(200).json(deletedPost)
     } catch (error) {
         res.status(500).json({ error: error.message })
@@ -128,6 +116,7 @@ const agregarTagAPost = async (req, res) => {
             { $addToSet: { tags: tagId } },
             { new: true }
         );
+        cacheManager.clear()
         res.status(200).json(post)
 
 
@@ -144,6 +133,7 @@ const addImageToPost = async (req, res) => {
 
         const newImage = new PostImage({ url, post: postId })
         await newImage.save()
+        cacheManager.clear()
         res.status(201).json(newImage)
 
     }

@@ -1,14 +1,15 @@
 const cacheManager = require('../managers/CacheManager');
 
 const cache = (durationInSeconds) => {
-    return (req, res, next) => {
+    
+    return async (req, res, next) => {
         if (req.method !== 'GET') {
             return next();
         }
 
 
         const key = req.originalUrl;
-        const cachedData = cacheManager.get(key);
+        const cachedData = await cacheManager.get(key);
 
         if (cachedData) {
             return res.json(cachedData);

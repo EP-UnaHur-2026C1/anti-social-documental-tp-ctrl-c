@@ -1,37 +1,42 @@
+const {createClient} = require('redis');
+
+const redisClient = createClient({
+    url: process.env.REDIS_URL
+});
+
 class CacheManager {
     constructor() {
-        this.cache = new Map();
+        this.client = redisClient;
+        this.client.on('error', (err) => console.error('Redis Client Error', err));
+        this.client.connect().catch(console.error)
     }
 
 
-    get(key) {
-        const item = this.cache.get(key);
-        
-        if (!item) return null;
 
-
-        if (Date.now() > item.expiry) {
-            this.cache.delete(key);
-            return null;
+    async get(key) {
+        try{
+            const item = await this.client.get(key);
+            return item ? JSON.parse(item) : null;
         }
-
-        return item.value;
+        catch (error){
+            console.error(error)
+            return null
+        }
     }
 
 
     set(key, value, time = 60) {
-        const expiry = Date.now() + (time * 1000);
-        this.cache.set(key, { value, expiry });
+        this.client.setEx(key,time , JSON.stringify(value)).catch(console.error)
     }
 
 
     delete(key) {
-        this.cache.delete(key);
+        this.client.del(key).catch(console.error);
     }
 
 
     clear() {
-        this.cache.clear();
+        this.client.flushDb().catch(console.error);
     }
 }
 

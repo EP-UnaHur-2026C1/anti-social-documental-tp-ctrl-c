@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 
-dotenv.config({ override: true });
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT ?? '3000';
@@ -35,5 +35,6 @@ app.listen(PORT, async (err) => {
         process.exit(1);
     }
     console.log(`Servidor escuchando en el puerto ${PORT}`);
+    console.log("🚨 ATENCIÓN - La URL de Mongo que estoy leyendo es:", process.env.MONGO_URI);
     await connectToDataBase();
 });

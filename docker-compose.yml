@@ -10,22 +10,33 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
+  
+  redis:
+    image: redis:latest
+    container_name: antisocial-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+
   api:
     build: .
     container_name: antisocial-api
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "${PORT}:${PORT}"
     depends_on:
       - database
+      - redis
     environment:
-      PORT: 3000
+      PORT: ${PORT}
       MONGO_URI: mongodb://root:example@database:27017/anti-social?authSource=admin
       COMMENT_VISIBLE_MONTHS: 6
       NODE_ENV: development
+      REDIS_URL: redis://redis:6379
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/src
+      - /src/node_modules
 
   cliente:
     image: mongo-express
@@ -39,5 +50,19 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@database:27017/
       ME_CONFIG_BASICAUTH: false
+  
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redis-insight
+    ports:
+      - "5540:5540"
+    depends_on:
+      - redis
+    volumes:
+      - redis_insight-data:/db
+  
+
+volumes:
+  redis_insight-data:
 
 
