@@ -16,6 +16,7 @@ const postRoutes = require('./routes/post.routes');
 const commentRoutes = require('./routes/comment.routes');
 const tagRoutes = require('./routes/tag.routes');
 const postImageRoutes = require('./routes/postImage.routes');
+const errorHandler = require('./middlewares/error.middleware');
 
 app.use(express.json());
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -27,7 +28,7 @@ app.use('/comments', commentRoutes);
 app.use('/tags', tagRoutes);
 app.use('/postImages', postImageRoutes);
 
-
+app.use(errorHandler);
 
 app.listen(PORT, async (err) => {
     if (err) {
@@ -35,6 +36,5 @@ app.listen(PORT, async (err) => {
         process.exit(1);
     }
     console.log(`Servidor escuchando en el puerto ${PORT}`);
-    console.log("🚨 ATENCIÓN - La URL de Mongo que estoy leyendo es:", process.env.MONGO_URI);
     await connectToDataBase();
 });
