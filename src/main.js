@@ -20,7 +20,7 @@ const errorHandler = require('./middlewares/error.middleware');
 const requestLogger = require('./middlewares/logger.middleware');
 
 const path = require('path');
-app.use('/uploads', express.static(path.join(__dirname, '../imagenes'))); 
+app.use('/imagenes', express.static(path.join(__dirname, './imagenes'))); 
 
 app.use(requestLogger);
 app.use(express.json());
@@ -32,7 +32,6 @@ app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 app.use('/tags', tagRoutes);
 app.use('/postImages', postImageRoutes);
-app.use('/post_Images', postImageRoutes);
 
 app.use(errorHandler);
 

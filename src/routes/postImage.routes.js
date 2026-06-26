@@ -34,7 +34,7 @@ router.get('/:id', getPostImageById);
 
 router.post('/', upload.single('url'), createPostImage);
 
-router.put('/:id', updatePostImage);
+router.put('/:id', upload.single('url'), updatePostImage);
 router.delete('/:id', deletePostImage);
 
 module.exports = router;

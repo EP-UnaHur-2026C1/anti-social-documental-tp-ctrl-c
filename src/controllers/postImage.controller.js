@@ -17,7 +17,7 @@ const createPostImage = catchAsync(async (req, res) => {
     const { post } = req.body;
 
     const PORT = process.env.PORT || 4002;
-    const urlLocal = `http://localhost:${PORT}/uploads/${req.file.filename}`;
+    const urlLocal = `http://localhost:${PORT}/imagenes/${req.file.filename}`;
 
     const newPostImage = await postImageService.createPostImage({
         url: urlLocal,
@@ -28,10 +28,34 @@ const createPostImage = catchAsync(async (req, res) => {
 });
 
 const updatePostImage = catchAsync(async (req, res) => {
-    const { url } = req.body;
-    const updatedPostImage = await postImageService.updatePostImage(req.params.id, { url });
+    const { id } = req.params;
+    
+    if (!req.file) {
+        return res.status(400).json({ message: "No se proporcionó ninguna imagen nueva." });
+    }
+
+    const currentImage = await postImageService.getPostImageById(id);
+    
+    if (currentImage && currentImage.url) {
+        const oldFilename = currentImage.url.split('/').pop();
+        const oldFilePath = path.join(__dirname, '../imagenes', oldFilename);
+        
+        try {
+            await fs.unlink(oldFilePath);
+        } catch (err) {
+            console.error("No se pudo borrar el archivo viejo:", err.message);
+        }
+    }
+
+    const PORT = process.env.PORT || 4002;
+    const urlLocal = `http://localhost:${PORT}/imagenes/${req.file.filename}`;
+
+    const updatedPostImage = await postImageService.updatePostImage(id, { url: urlLocal });
+    
     res.status(200).json(updatedPostImage);
 });
+
+
 
 const deletePostImage = catchAsync(async (req, res) => {
     const deletedPostImage = await postImageService.deletePostImage(req.params.id);

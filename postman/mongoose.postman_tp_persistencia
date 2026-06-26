@@ -20,7 +20,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nickName\": \"usuario 1\"\r\n}",
+              "raw": "{\r\n  \"nickName\": \"usuario 2\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -28,12 +28,12 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/users/create",
+              "raw": "http://localhost:4002/users/create",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "users",
                 "create"
@@ -51,12 +51,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/users",
+              "raw": "http://localhost:4002/users",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "users"
               ]
@@ -73,15 +73,15 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/users/6a3311016b7c2298f1da2d70",
+              "raw": "http://localhost:4002/users/6a3ef1912b3b2737f39e6afa",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "users",
-                "6a3311016b7c2298f1da2d70"
+                "6a3ef1912b3b2737f39e6afa"
               ]
             }
           },
@@ -105,15 +105,15 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/users/6a3313ad08625a17d2088129",
+              "raw": "http://localhost:4002/users/6a3ef1912b3b2737f39e6afa",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "users",
-                "6a3313ad08625a17d2088129"
+                "6a3ef1912b3b2737f39e6afa"
               ]
             }
           },
@@ -128,15 +128,15 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/users/6a3313ad08625a17d2088129",
+              "raw": "http://localhost:4002/users/6a3ef1912b3b2737f39e6afa",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "users",
-                "6a3313ad08625a17d2088129"
+                "6a3ef1912b3b2737f39e6afa"
               ]
             }
           },
@@ -152,7 +152,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"name\": \"tag 1\"\r\n}",
+              "raw": "{\r\n  \"name\": \"tag 2\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -160,12 +160,12 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/tags/create",
+              "raw": "http://localhost:4002/tags/create",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "tags",
                 "create"
@@ -183,12 +183,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/tags",
+              "raw": "http://localhost:4002/tags",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "tags"
               ]
@@ -205,15 +205,15 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/tags/6a33174d6fecc9d82eaff65a",
+              "raw": "http://localhost:4002/tags/6a3eec072b3b2737f39e6af7",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "tags",
-                "6a33174d6fecc9d82eaff65a"
+                "6a3eec072b3b2737f39e6af7"
               ]
             }
           },
@@ -237,15 +237,15 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/tags/6a3318156fecc9d82eaff65b",
+              "raw": "http://localhost:4002/tags/6a3eec072b3b2737f39e6af7",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "tags",
-                "6a3318156fecc9d82eaff65b"
+                "6a3eec072b3b2737f39e6af7"
               ]
             }
           },
@@ -260,15 +260,15 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/tags/6a33188d6fecc9d82eaff65c",
+              "raw": "http://localhost:4002/tags/6a3ef50a2b3b2737f39e6afb",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "tags",
-                "6a33188d6fecc9d82eaff65c"
+                "6a3ef50a2b3b2737f39e6afb"
               ]
             }
           },
@@ -284,7 +284,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"description\": \"Este es mi primer post\",\r\n  \"user\": \"6a3311016b7c2298f1da2d70\",\r\n  \"tags\": [\r\n    \"6a3316ef6fecc9d82eaff659\"\r\n  ]\r\n}",
+              "raw": "{\r\n  \"description\": \"Este es el post 2 del usuario 1 \",\r\n  \"user\": \"6a3eebb22b3b2737f39e6af6\",\r\n  \"tags\": [\r\n    \"6a3eec072b3b2737f39e6af7\"\r\n  ]\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -292,12 +292,12 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/posts/create",
+              "raw": "http://localhost:4002/posts/create",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "posts",
                 "create"
@@ -315,14 +315,111 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3002/posts",
+              "raw": "http://localhost:4002/posts",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "posts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "crearPostConImagen",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "url",
+                  "type": "file",
+                  "uuid": "d25d1f0a-a389-4a98-9f84-8da4108aad74",
+                  "src": "/C:/Users/miguel/Downloads/imagenInicio.png"
+                },
+                {
+                  "key": "post",
+                  "value": "6a3eec242b3b2737f39e6af8",
+                  "type": "text",
+                  "uuid": "59e9f625-cdbd-41cc-b2eb-c79671bf351b"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:4002/postImages/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "postImages",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cambiarLaImagenDeUnPostConImagen",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "url",
+                  "type": "file",
+                  "uuid": "312a96bb-9f68-4e55-99bb-8a825da7df9b",
+                  "src": "/C:/Users/miguel/Downloads/imagenInicio.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:4002/postImages/6a3eec9d2b3b2737f39e6af9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "postImages",
+                "6a3eec9d2b3b2737f39e6af9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "borrarLaImagenDeUnPostConImagen",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/postImages/6a3eec9d2b3b2737f39e6af9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "postImages",
+                "6a3eec9d2b3b2737f39e6af9"
               ]
             }
           },
@@ -338,7 +435,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"text\": \"soy el usuario 2 y te dejo mi primer saludo\",\r\n  \"post\": \"6a331dc51ab64800c3d26a22\", \r\n  \"user\": \"6a3311456b7c2298f1da2d71\"\r\n}",
+              "raw": "{\r\n  \"text\": \"soy el usuario 3 que buena foto subiste usuario 1\",\r\n  \"post\": \"6a3eec242b3b2737f39e6af8\", \r\n  \"user\": \"6a3ef7d92b3b2737f39e6afe\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -346,12 +443,12 @@
               }
             },
             "url": {
-              "raw": "http://localhost:3002/comments/create",
+              "raw": "http://localhost:4002/comments/create",
               "protocol": "http",
               "host": [
                 "localhost"
               ],
-              "port": "3002",
+              "port": "4002",
               "path": [
                 "comments",
                 "create"
@@ -361,10 +458,57 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "actualizarUnComentarioEnUnPost",
           "request": {
-            "method": "GET",
-            "header": []
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"text\": \"soy el usuario 3 y acabo de actualizar este comentario desde Postman\",\r\n  \"post\": \"6a3eec242b3b2737f39e6af8\",\r\n  \"user\": \"6a3ef7d92b3b2737f39e6afe\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4002/comments/6a3ef8da2b3b2737f39e6b00",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "comments",
+                "6a3ef8da2b3b2737f39e6b00"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "eliminarUnComentarioDeUnPost",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4002/comments/6a3ef8da2b3b2737f39e6b00",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4002",
+              "path": [
+                "comments",
+                "6a3ef8da2b3b2737f39e6b00"
+              ]
+            }
           },
           "response": []
         }
