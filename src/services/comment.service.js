@@ -7,9 +7,9 @@ const getFechaLimite = () => {
     return limitDate;
 };
 
-const getAllComments = async () => await Comment.find().populate('user', 'nickName')
+const getAllComments = async () => await Comment.find().populate('user', 'nickName') .select('-createdAt -updatedAt -__v')
 
-const getCommentById = async (id) => await Comment.findById(id).populate('user', 'nickName')
+const getCommentById = async (id) => await Comment.findById(id).populate('user', 'nickName') .select('-createdAt -updatedAt -__v')
 
 const createComment = async (commentData) => await new Comment(commentData).save()
 
@@ -23,6 +23,7 @@ const getCommentsByPost = async (postId) => {
         createdAt: { $gte: getFechaLimite() }
     })
     .populate('user', 'nickName')
+    .select('-createdAt -updatedAt -__v')
     .sort({ createdAt: -1 });
 };
 

@@ -2,10 +2,12 @@ const User = require('../models/User')
 const Comment = require('../models/Comment')
 
 const getAllUsers = async () => await User.find()
+    .select('-createdAt -updatedAt -__v')
     .populate('nickName followers')
     .populate('nickName following')
 
 const getUserById = async (id) => await User.findById(id)
+    .select('-createdAt -updatedAt -__v')
     .populate('comentarios') 
     .populate('posts', 'description createdAt') 
     .populate('followers', 'nickName');
@@ -25,6 +27,7 @@ const updateUser = async (id, userData) => await User.findByIdAndUpdate(
 const deleteUser = async (id) => await User.findByIdAndDelete(id);
 
 const getCommentsByUserId = async (userId) => await Comment.find({ user: userId })
+    .select('-createdAt -updatedAt -__v')
     .populate('user', 'nickName')
     .populate('post', 'description');
 
@@ -32,7 +35,7 @@ const getCommentsByUserId = async (userId) => await Comment.find({ user: userId 
 
 
 const getPostsByUserId = async (userId) => {
-    const user = await User.findById(userId).populate('posts', 'description createdAt');
+    const user = await User.findById(userId).populate('posts', 'description -createdAt -updatedAt -__v');
     return user ? user.posts : [];
 }
 

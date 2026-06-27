@@ -22,7 +22,15 @@ const commentSchema = new mongoose.Schema(
 
     },
     {
-        timestamps:true
+        timestamps:true,    
+        toJSON: {
+            transform: function(doc, ret) {
+                delete ret.createdAt;
+                delete ret.updatedAt;
+                delete ret.__v;
+                return ret;
+            }
+        }
 
     }
 )

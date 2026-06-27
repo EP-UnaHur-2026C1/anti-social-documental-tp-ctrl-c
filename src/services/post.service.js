@@ -10,6 +10,7 @@ const getFechaLimite = () => {
 }
 
 const getAllPosts = async () => await Post.find()
+    .select('-createdAt -updatedAt -__v')
     .populate('user', 'nickName')
     .populate('tags', 'name')
     .populate('images', 'url')
@@ -24,6 +25,7 @@ const getAllPosts = async () => await Post.find()
 
 
 const getPostById = async (id) => await Post.findById(id)
+    .select('-createdAt -updatedAt -__v')
     .populate('user', 'nickName')
     .populate('tags', 'name')
     .populate('images', 'url')

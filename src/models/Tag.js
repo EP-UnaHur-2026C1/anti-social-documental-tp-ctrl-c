@@ -10,7 +10,17 @@ const tagSchema = new mongoose.Schema(
         }
     },
     {
-        timestamps:true
+        timestamps: true,
+        toObject: { virtuals: true },
+        toJSON: {
+            virtuals: true,
+            transform: function(doc, ret) {
+                delete ret.createdAt;
+                delete ret.updatedAt;
+                delete ret.__v;
+                return ret;
+            }
+        }
 
     }
 )

@@ -22,8 +22,17 @@ const postSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-        toJSON: { virtuals: true },
-        toObject: { virtuals: true }
+        toObject: { virtuals: true },
+        toJSON: { 
+            virtuals: true,
+            transform: function(doc, ret) {
+                delete ret.createdAt;
+                delete ret.updatedAt;
+                delete ret.__v;
+                return ret;
+            }
+        }
+
     }
 
 
